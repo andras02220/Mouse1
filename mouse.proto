@@ -1,0 +1,16 @@
+syntax = "proto3";
+package mouseSenderPackage;
+
+service MouseSender {
+  rpc mouseStream(EventString) returns (stream EventString);
+  rpc sayHello(EventString) returns (EventString);
+}
+message void{}
+
+message EventString{
+  string event = 1;
+}
+message Events{
+  repeated EventString eventstring = 1;
+}
+
