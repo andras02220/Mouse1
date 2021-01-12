@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"\x06\n\x04void\"\x1c\n\x0b\x45ventString\x12\r\n\x05\x65vent\x18\x01 \x01(\t\">\n\x06\x45vents\x12\x34\n\x0b\x65ventstring\x18\x01 \x03(\x0b\x32\x1f.mouseSenderPackage.EventString2\xae\x01\n\x0bMouseSender\x12Q\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a\x1f.mouseSenderPackage.EventString0\x01\x12L\n\x08sayHello\x12\x1f.mouseSenderPackage.EventString\x1a\x1f.mouseSenderPackage.EventStringb\x06proto3'
+  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"\x06\n\x04void\"!\n\x0b\x45ventString\x12\x12\n\nmouseevent\x18\x01 \x01(\t\">\n\x06\x45vents\x12\x34\n\x0b\x65ventstring\x18\x01 \x03(\x0b\x32\x1f.mouseSenderPackage.EventString2\xae\x01\n\x0bMouseSender\x12Q\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a\x1f.mouseSenderPackage.EventString0\x01\x12L\n\x08sayHello\x12\x1f.mouseSenderPackage.EventString\x1a\x1f.mouseSenderPackage.EventStringb\x06proto3'
 )
 
 
@@ -59,7 +59,7 @@ _EVENTSTRING = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='event', full_name='mouseSenderPackage.EventString.event', index=0,
+      name='mouseevent', full_name='mouseSenderPackage.EventString.mouseevent', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -78,7 +78,7 @@ _EVENTSTRING = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=43,
-  serialized_end=71,
+  serialized_end=76,
 )
 
 
@@ -109,8 +109,8 @@ _EVENTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=135,
+  serialized_start=78,
+  serialized_end=140,
 )
 
 _EVENTS.fields_by_name['eventstring'].message_type = _EVENTSTRING
@@ -149,8 +149,8 @@ _MOUSESENDER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=138,
-  serialized_end=312,
+  serialized_start=143,
+  serialized_end=317,
   methods=[
   _descriptor.MethodDescriptor(
     name='mouseStream',

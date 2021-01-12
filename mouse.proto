@@ -8,7 +8,7 @@ service MouseSender {
 message void{}
 
 message EventString{
-  string event = 1;
+  string mouseevent = 1;
 }
 message Events{
   repeated EventString eventstring = 1;

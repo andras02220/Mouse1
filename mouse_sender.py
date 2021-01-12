@@ -14,13 +14,15 @@ class IterQueue(queue.Queue):
     def __iter__(self):
         while True:
             yield self.get()
+
+
 class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
     def mouseStream(self, request, context):
         l = IterQueue(maxsize=3000)
         mouse.hook(l.put)
         for i in l:
             e = str(l.get())
-            event = mouse_pb2.EventString(event=e)
+            event = mouse_pb2.EventString(mouseevent=e)
             yield event
 
     def sayHello(self, request, context):
