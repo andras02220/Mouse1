@@ -7,6 +7,7 @@ import mouse_pb2
 import mouse
 import queue
 
+b = 'a'
 
 MoveEvent = mouse.MoveEvent
 ButtonEvent = mouse.ButtonEvent
@@ -16,9 +17,9 @@ class IterQueue(queue.Queue):
         while True:
             yield self.get()
 
-    # def mouse_player(stub):
-    #     events = stub.mouseStream(mouse_pb2.EventString(event='ff');
-    #
+    def mouse_player(stub):
+        # events = stub.mouseStream(mouse_pb2.EventString(event='ff');
+        mouse.play(stub.mouseStream(mouse_pb2.EventString(mouseevent=b)))
 
 
 def run():
@@ -26,7 +27,6 @@ def run():
     stub = mouse_pb2_grpc.MouseSenderStub(channel)
     # response = stub.sayHello(mouse_pb2.EventString(event='ff'));
     # print(response);
-    b = 'a'
 
 
     while True:
@@ -39,7 +39,6 @@ def run():
             print(lista)
             # l.put(k)
             print('**********************************************')
-            # time.sleep(1)
-            mouse.play(lista)
+            # mouse.play(lista)
 
 run()

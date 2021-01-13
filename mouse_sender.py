@@ -6,10 +6,6 @@ import mouse_pb2
 import mouse_pb2_grpc
 import queue
 
-# l = []
-# mouse.hook(l.append)
-# time.sleep(3)
-# mouse.unhook(l.append)
 class IterQueue(queue.Queue):
     def __iter__(self):
         while True:
@@ -20,9 +16,9 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
     def mouseStream(self, request, context):
         l = IterQueue(maxsize=3000)
         mouse.hook(l.put)
-        for i in l:
-            e = str(l.get())
-            event = mouse_pb2.EventString(mouseevent=e)
+        while True:
+            # e = str(l.get())
+            event = mouse_pb2.EventString(mouseevent=str(l.get()))
             yield event
 
     def sayHello(self, request, context):
