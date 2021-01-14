@@ -1,5 +1,4 @@
 import mouse
-import time
 import grpc
 from concurrent import futures
 import mouse_pb2
@@ -17,13 +16,9 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
         l = IterQueue(maxsize=3000)
         mouse.hook(l.put)
         while True:
-            # e = str(l.get())
             event = mouse_pb2.EventString(mouseevent=str(l.get()))
             yield event
 
-    def sayHello(self, request, context):
-        hello = 'helloooo'
-        return mouse_pb2.EventString(event=hello)
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     mouse_pb2_grpc.add_MouseSenderServicer_to_server(
@@ -32,4 +27,5 @@ def serve():
     server.start()
     server.wait_for_termination()
 
-serve()
+if __name__ == "__main__":
+    serve()

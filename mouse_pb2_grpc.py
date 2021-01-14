@@ -19,11 +19,6 @@ class MouseSenderStub(object):
                 request_serializer=mouse__pb2.EventString.SerializeToString,
                 response_deserializer=mouse__pb2.EventString.FromString,
                 )
-        self.sayHello = channel.unary_unary(
-                '/mouseSenderPackage.MouseSender/sayHello',
-                request_serializer=mouse__pb2.EventString.SerializeToString,
-                response_deserializer=mouse__pb2.EventString.FromString,
-                )
 
 
 class MouseSenderServicer(object):
@@ -35,22 +30,11 @@ class MouseSenderServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def sayHello(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_MouseSenderServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'mouseStream': grpc.unary_stream_rpc_method_handler(
                     servicer.mouseStream,
-                    request_deserializer=mouse__pb2.EventString.FromString,
-                    response_serializer=mouse__pb2.EventString.SerializeToString,
-            ),
-            'sayHello': grpc.unary_unary_rpc_method_handler(
-                    servicer.sayHello,
                     request_deserializer=mouse__pb2.EventString.FromString,
                     response_serializer=mouse__pb2.EventString.SerializeToString,
             ),
@@ -76,23 +60,6 @@ class MouseSender(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/mouseSenderPackage.MouseSender/mouseStream',
-            mouse__pb2.EventString.SerializeToString,
-            mouse__pb2.EventString.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def sayHello(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/mouseSenderPackage.MouseSender/sayHello',
             mouse__pb2.EventString.SerializeToString,
             mouse__pb2.EventString.FromString,
             options, channel_credentials,
