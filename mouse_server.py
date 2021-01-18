@@ -1,5 +1,5 @@
 # python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. mouse.proto
-
+import keyboard
 import mouse
 import grpc
 from concurrent import futures
@@ -44,8 +44,11 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     mouse_pb2_grpc.add_MouseSenderServicer_to_server(
         MouseServicer(), server)
-    server.add_insecure_port('[::]:54321')
+    server.add_insecure_port('[::]:5678')
+    keyboard.wait('esc')
     server.start()
+    print('server started on port 5678')
+
     server.wait_for_termination()
 
 if __name__ == "__main__":

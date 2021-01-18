@@ -21,15 +21,17 @@ def receiver(e):
         if e.event_type == 2:
             event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
         l.put(event)
-        print(l.get())
+
+        event_to_play = [l.get()]
+        mouse.play(event_to_play)
         return event
 
 def run():
-    channel = grpc.insecure_channel('localhost:54321')
+    channel = grpc.insecure_channel('212.40.84.162:5678')
     stub = mouse_pb2_grpc.MouseSenderStub(channel)
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
+        print('********')
         receiver(e)
-
 
 
 if __name__ == "__main__":

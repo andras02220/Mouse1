@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58e0827e-c0b7-4a54-8e92-55accf390322" name="Default Changelist" comment="">
-      <change afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" afterDir="false" />
-      <change afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" afterDir="false" />
+    <list default="true" id="58e0827e-c0b7-4a54-8e92-55accf390322" name="Default Changelist" comment="first commit">
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_getter.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_getter.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" afterDir="false" />
+      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" afterDir="false" />
+      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="scratch_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mouse1.1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,7 +87,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,9 +142,9 @@
       <list>
         <item itemvalue="Python.mouse_client" />
         <item itemvalue="Python.mouse_server" />
+        <item itemvalue="Python.scratch_2" />
         <item itemvalue="Python.scratch_7" />
         <item itemvalue="Python.scratch_6" />
-        <item itemvalue="Python.scratch_3" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610623369963</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="first commit">
+      <created>1610959430245</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610959430245</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -194,10 +197,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1610357659947" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1610623368330">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1610959512708">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1610623368330" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1610959512708" />
     <state x="561" y="267" key="Github.ShareDialog" timestamp="1610378089467">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -206,22 +209,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="452" y="74" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1610378102629" />
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1610733981536">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1610977316656">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
-    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1610733981536">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610977316656" />
+    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1610977316656">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
-    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1610733981520">
+    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1610977316656" />
+    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1610977316656">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1610733981520" />
-    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1610733981536">
+    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1610977316656" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1610977316656">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1610977316656" />
     <state width="1345" height="227" key="GridCell.Tab.1.bottom" timestamp="1610638066221">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -242,10 +245,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1610630292627" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1610623387165">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1610959516770">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1610623387165" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1610959516770" />
     <state x="245" y="98" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1610630352355">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
