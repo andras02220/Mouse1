@@ -17,7 +17,7 @@ class MouseSenderStub(object):
         self.mouseStream = channel.unary_stream(
                 '/mouseSenderPackage.MouseSender/mouseStream',
                 request_serializer=mouse__pb2.EventString.SerializeToString,
-                response_deserializer=mouse__pb2.EventString.FromString,
+                response_deserializer=mouse__pb2.EventDetails.FromString,
                 )
 
 
@@ -36,7 +36,7 @@ def add_MouseSenderServicer_to_server(servicer, server):
             'mouseStream': grpc.unary_stream_rpc_method_handler(
                     servicer.mouseStream,
                     request_deserializer=mouse__pb2.EventString.FromString,
-                    response_serializer=mouse__pb2.EventString.SerializeToString,
+                    response_serializer=mouse__pb2.EventDetails.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -61,6 +61,6 @@ class MouseSender(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/mouseSenderPackage.MouseSender/mouseStream',
             mouse__pb2.EventString.SerializeToString,
-            mouse__pb2.EventString.FromString,
+            mouse__pb2.EventDetails.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

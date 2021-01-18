@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58e0827e-c0b7-4a54-8e92-55accf390322" name="Default Changelist" comment="">
+      <change afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" afterDir="false" />
+      <change afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_getter.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_getter.py" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_sender.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_sender.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +34,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
-  <component name="RunManager" selected="Python.mouse_sender">
-    <configuration name="mouse_getter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.mouse_client">
+    <configuration name="mouse_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mouse1.1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -49,7 +49,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_getter.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -58,7 +58,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mouse_sender" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="mouse_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mouse1.1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,28 +70,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_sender.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="scratch_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Mouse1.1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="scratch_6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mouse1.1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -133,7 +112,28 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_5.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_6.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_7" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mouse1.1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_7.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,10 +144,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.mouse_sender" />
-        <item itemvalue="Python.mouse_getter" />
-        <item itemvalue="Python.scratch_5" />
-        <item itemvalue="Python.scratch_2" />
+        <item itemvalue="Python.mouse_client" />
+        <item itemvalue="Python.mouse_server" />
+        <item itemvalue="Python.scratch_7" />
+        <item itemvalue="Python.scratch_6" />
         <item itemvalue="Python.scratch_3" />
       </list>
     </recent_temporary>
@@ -175,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610534340938</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1610623369963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610623369963</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -187,10 +194,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1610357659947" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1610534339923">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1610623368330">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1610534339923" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1610623368330" />
     <state x="561" y="267" key="Github.ShareDialog" timestamp="1610378089467">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -199,29 +206,49 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="452" y="74" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1610378102629" />
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1610623319880">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1610733981536">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610623319880" />
-    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1610623319880">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
+    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1610733981536">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1610623319880" />
-    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1610623319880">
+    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
+    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1610733981520">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1610623319880" />
-    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1610623319880">
+    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1610733981520" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1610733981536">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1610623319880" />
-    <state x="184" y="14" key="SettingsEditor" timestamp="1610378152725">
+    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1610733981536" />
+    <state width="1345" height="227" key="GridCell.Tab.1.bottom" timestamp="1610638066221">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1610378152725" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1610534348604">
+    <state width="1345" height="227" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1610638066221" />
+    <state width="1345" height="227" key="GridCell.Tab.1.center" timestamp="1610638066221">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1610534348604" />
+    <state width="1345" height="227" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1610638066221" />
+    <state width="1345" height="227" key="GridCell.Tab.1.left" timestamp="1610638066220">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="227" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1610638066220" />
+    <state width="1345" height="227" key="GridCell.Tab.1.right" timestamp="1610638066221">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="227" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1610638066221" />
+    <state x="184" y="14" key="SettingsEditor" timestamp="1610630292627">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1610630292627" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1610623387165">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1610623387165" />
+    <state x="245" y="98" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1610630352355">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="245" y="98" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738@0.0.1366.738" timestamp="1610630352355" />
   </component>
 </project>

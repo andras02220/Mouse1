@@ -2,11 +2,25 @@ syntax = "proto3";
 package mouseSenderPackage;
 
 service MouseSender {
-  rpc mouseStream(EventString) returns (stream EventString);
+  rpc mouseStream(EventString) returns (stream EventDetails);
 }
 
 message EventString{
   string mouseevent = 1;
+}
+message EventDetails{
+  enum EventType{
+    MOVE = 0;
+    BUTTON = 1;
+    WHEEL = 2;
+  }
+  EventType event_type = 1;
+  double time = 2;
+  int32 x = 3;
+  int32 y = 4;
+  string btype = 5;
+  string button = 6;
+  float delta = 7;
 }
 
 

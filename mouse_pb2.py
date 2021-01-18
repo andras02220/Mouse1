@@ -19,10 +19,40 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"!\n\x0b\x45ventString\x12\x12\n\nmouseevent\x18\x01 \x01(\t2`\n\x0bMouseSender\x12Q\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a\x1f.mouseSenderPackage.EventString0\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"!\n\x0b\x45ventString\x12\x12\n\nmouseevent\x18\x01 \x01(\t\"\xce\x01\n\x0c\x45ventDetails\x12>\n\nevent_type\x18\x01 \x01(\x0e\x32*.mouseSenderPackage.EventDetails.EventType\x12\x0c\n\x04time\x18\x02 \x01(\x01\x12\t\n\x01x\x18\x03 \x01(\x05\x12\t\n\x01y\x18\x04 \x01(\x05\x12\r\n\x05\x62type\x18\x05 \x01(\t\x12\x0e\n\x06\x62utton\x18\x06 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x07 \x01(\x02\",\n\tEventType\x12\x08\n\x04MOVE\x10\x00\x12\n\n\x06\x42UTTON\x10\x01\x12\t\n\x05WHEEL\x10\x02\x32\x61\n\x0bMouseSender\x12R\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a .mouseSenderPackage.EventDetails0\x01\x62\x06proto3'
 )
 
 
+
+_EVENTDETAILS_EVENTTYPE = _descriptor.EnumDescriptor(
+  name='EventType',
+  full_name='mouseSenderPackage.EventDetails.EventType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='MOVE', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WHEEL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=233,
+  serialized_end=277,
+)
+_sym_db.RegisterEnumDescriptor(_EVENTDETAILS_EVENTTYPE)
 
 
 _EVENTSTRING = _descriptor.Descriptor(
@@ -56,7 +86,85 @@ _EVENTSTRING = _descriptor.Descriptor(
   serialized_end=68,
 )
 
+
+_EVENTDETAILS = _descriptor.Descriptor(
+  name='EventDetails',
+  full_name='mouseSenderPackage.EventDetails',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='event_type', full_name='mouseSenderPackage.EventDetails.event_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='mouseSenderPackage.EventDetails.time', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='x', full_name='mouseSenderPackage.EventDetails.x', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='mouseSenderPackage.EventDetails.y', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='btype', full_name='mouseSenderPackage.EventDetails.btype', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='button', full_name='mouseSenderPackage.EventDetails.button', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='delta', full_name='mouseSenderPackage.EventDetails.delta', index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _EVENTDETAILS_EVENTTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=71,
+  serialized_end=277,
+)
+
+_EVENTDETAILS.fields_by_name['event_type'].enum_type = _EVENTDETAILS_EVENTTYPE
+_EVENTDETAILS_EVENTTYPE.containing_type = _EVENTDETAILS
 DESCRIPTOR.message_types_by_name['EventString'] = _EVENTSTRING
+DESCRIPTOR.message_types_by_name['EventDetails'] = _EVENTDETAILS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 EventString = _reflection.GeneratedProtocolMessageType('EventString', (_message.Message,), {
@@ -65,6 +173,13 @@ EventString = _reflection.GeneratedProtocolMessageType('EventString', (_message.
   # @@protoc_insertion_point(class_scope:mouseSenderPackage.EventString)
   })
 _sym_db.RegisterMessage(EventString)
+
+EventDetails = _reflection.GeneratedProtocolMessageType('EventDetails', (_message.Message,), {
+  'DESCRIPTOR' : _EVENTDETAILS,
+  '__module__' : 'mouse_pb2'
+  # @@protoc_insertion_point(class_scope:mouseSenderPackage.EventDetails)
+  })
+_sym_db.RegisterMessage(EventDetails)
 
 
 
@@ -75,8 +190,8 @@ _MOUSESENDER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=70,
-  serialized_end=166,
+  serialized_start=279,
+  serialized_end=376,
   methods=[
   _descriptor.MethodDescriptor(
     name='mouseStream',
@@ -84,7 +199,7 @@ _MOUSESENDER = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_EVENTSTRING,
-    output_type=_EVENTSTRING,
+    output_type=_EVENTDETAILS,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
