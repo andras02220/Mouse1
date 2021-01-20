@@ -1,3 +1,4 @@
+from multiprocessing import Process
 import time
 import queue
 import grpc
@@ -22,9 +23,8 @@ def receiver(e):
             event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
         l.put(event)
 
-        event_to_play = [l.get()]
-        mouse.play(event_to_play)
-        return event
+        # event_to_play = [l.get()]
+        # return event
 
 def run():
     print('Mousestarted')
@@ -36,5 +36,13 @@ def run():
         receiver(e)
 
 
+
+if __name__ == '__main__':
+  p1 = Process(target=run())
+  p2 = Process(target=keyboard_getter.run)
+
+
 if __name__ == "__main__":
-    run()
+
+    p2.start()
+    p1.start()

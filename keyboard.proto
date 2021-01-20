@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package keyboardsender;
+
+service Keyboard {
+  rpc GetKeyboard(KeyStroke) returns (stream KeyStroke);
+}
+
+message KeyStroke{
+  string key = 1;
+}
