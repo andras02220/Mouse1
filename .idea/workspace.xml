@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58e0827e-c0b7-4a54-8e92-55accf390322" name="Default Changelist" comment="">
-      <change afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/loops.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/keyboard_getter.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/keyboard_getter.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse.proto" afterDir="false" />
       <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_client.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_pb2_grpc.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/mouse_server.py" afterDir="false" />
-      <change beforePath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/recorded.py" beforeDir="false" afterPath="$APPLICATION_HOME_DIR$/jbr/bin/Mouse1.1/recorded.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611143016769</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="keyboard wait 'esc' added to server">
+      <created>1611243842077</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611243842077</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -224,10 +223,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1610357659947" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1611143015704">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1611243840650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1611143015704" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1611243840650" />
     <state x="561" y="267" key="Github.ShareDialog" timestamp="1610378089467">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -236,22 +235,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="452" y="74" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1610378102629" />
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1611243594803">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1611243800721">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1611243594803" />
-    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1611243594803">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1611243800721" />
+    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1611243800720">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1611243594803" />
-    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1611243594803">
+    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1611243800720" />
+    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1611243800720">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1611243594803" />
-    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1611243594803">
+    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1611243800720" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1611243800720">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1611243594803" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1611243800720" />
     <state width="1345" height="227" key="GridCell.Tab.1.bottom" timestamp="1610638066221">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -272,10 +271,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1610630292627" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1611143022229">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1611243847320">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1611143022229" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1611243847320" />
     <state x="245" y="98" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1610630352355">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

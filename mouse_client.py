@@ -32,7 +32,6 @@ stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 def run1():
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
-        print('********')
         receiver(e)
 def run2():
     for m in stub.dateStream(mouse_pb2.DateString(date_time='da')):
