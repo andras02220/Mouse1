@@ -47,7 +47,13 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             time.sleep(1)
             m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
             yield m
-
+    def GetKeyboard(self, request, context):
+        ko = IterQueue(maxsize=3000)
+        keyboard.hook(ko.put)
+        while True:
+            # e = str(l.get())
+            event = mouse_pb2.KeyStroke(key=str(ko.get()))
+            yield event
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     mouse_pb2_grpc.add_MouseSenderServicer_to_server(

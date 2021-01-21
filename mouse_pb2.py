@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"!\n\x0b\x45ventString\x12\x12\n\nmouseevent\x18\x01 \x01(\t\"\xce\x01\n\x0c\x45ventDetails\x12>\n\nevent_type\x18\x01 \x01(\x0e\x32*.mouseSenderPackage.EventDetails.EventType\x12\x0c\n\x04time\x18\x02 \x01(\x01\x12\t\n\x01x\x18\x03 \x01(\x05\x12\t\n\x01y\x18\x04 \x01(\x05\x12\r\n\x05\x62type\x18\x05 \x01(\t\x12\x0e\n\x06\x62utton\x18\x06 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x07 \x01(\x02\",\n\tEventType\x12\x08\n\x04MOVE\x10\x00\x12\n\n\x06\x42UTTON\x10\x01\x12\t\n\x05WHEEL\x10\x02\"\x1f\n\nDateString\x12\x11\n\tdate_time\x18\x01 \x01(\t2\xb1\x01\n\x0bMouseSender\x12R\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a .mouseSenderPackage.EventDetails0\x01\x12N\n\ndateStream\x12\x1e.mouseSenderPackage.DateString\x1a\x1e.mouseSenderPackage.DateString0\x01\x62\x06proto3'
+  serialized_pb=b'\n\x0bmouse.proto\x12\x12mouseSenderPackage\"!\n\x0b\x45ventString\x12\x12\n\nmouseevent\x18\x01 \x01(\t\"\xce\x01\n\x0c\x45ventDetails\x12>\n\nevent_type\x18\x01 \x01(\x0e\x32*.mouseSenderPackage.EventDetails.EventType\x12\x0c\n\x04time\x18\x02 \x01(\x01\x12\t\n\x01x\x18\x03 \x01(\x05\x12\t\n\x01y\x18\x04 \x01(\x05\x12\r\n\x05\x62type\x18\x05 \x01(\t\x12\x0e\n\x06\x62utton\x18\x06 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x07 \x01(\x02\",\n\tEventType\x12\x08\n\x04MOVE\x10\x00\x12\n\n\x06\x42UTTON\x10\x01\x12\t\n\x05WHEEL\x10\x02\"\x1f\n\nDateString\x12\x11\n\tdate_time\x18\x01 \x01(\t\"\x18\n\tKeyStroke\x12\x0b\n\x03key\x18\x01 \x01(\t2\x80\x02\n\x0bMouseSender\x12R\n\x0bmouseStream\x12\x1f.mouseSenderPackage.EventString\x1a .mouseSenderPackage.EventDetails0\x01\x12N\n\ndateStream\x12\x1e.mouseSenderPackage.DateString\x1a\x1e.mouseSenderPackage.DateString0\x01\x12M\n\x0bGetKeyboard\x12\x1d.mouseSenderPackage.KeyStroke\x1a\x1d.mouseSenderPackage.KeyStroke0\x01\x62\x06proto3'
 )
 
 
@@ -193,11 +193,44 @@ _DATESTRING = _descriptor.Descriptor(
   serialized_end=310,
 )
 
+
+_KEYSTROKE = _descriptor.Descriptor(
+  name='KeyStroke',
+  full_name='mouseSenderPackage.KeyStroke',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='mouseSenderPackage.KeyStroke.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=312,
+  serialized_end=336,
+)
+
 _EVENTDETAILS.fields_by_name['event_type'].enum_type = _EVENTDETAILS_EVENTTYPE
 _EVENTDETAILS_EVENTTYPE.containing_type = _EVENTDETAILS
 DESCRIPTOR.message_types_by_name['EventString'] = _EVENTSTRING
 DESCRIPTOR.message_types_by_name['EventDetails'] = _EVENTDETAILS
 DESCRIPTOR.message_types_by_name['DateString'] = _DATESTRING
+DESCRIPTOR.message_types_by_name['KeyStroke'] = _KEYSTROKE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 EventString = _reflection.GeneratedProtocolMessageType('EventString', (_message.Message,), {
@@ -221,6 +254,13 @@ DateString = _reflection.GeneratedProtocolMessageType('DateString', (_message.Me
   })
 _sym_db.RegisterMessage(DateString)
 
+KeyStroke = _reflection.GeneratedProtocolMessageType('KeyStroke', (_message.Message,), {
+  'DESCRIPTOR' : _KEYSTROKE,
+  '__module__' : 'mouse_pb2'
+  # @@protoc_insertion_point(class_scope:mouseSenderPackage.KeyStroke)
+  })
+_sym_db.RegisterMessage(KeyStroke)
+
 
 
 _MOUSESENDER = _descriptor.ServiceDescriptor(
@@ -230,8 +270,8 @@ _MOUSESENDER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=313,
-  serialized_end=490,
+  serialized_start=339,
+  serialized_end=595,
   methods=[
   _descriptor.MethodDescriptor(
     name='mouseStream',
@@ -250,6 +290,16 @@ _MOUSESENDER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DATESTRING,
     output_type=_DATESTRING,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetKeyboard',
+    full_name='mouseSenderPackage.MouseSender.GetKeyboard',
+    index=2,
+    containing_service=None,
+    input_type=_KEYSTROKE,
+    output_type=_KEYSTROKE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

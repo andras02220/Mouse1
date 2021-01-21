@@ -1,48 +1,71 @@
 from multiprocessing import Process
-import time
 import queue
 import grpc
 import mouse_pb2_grpc
 import mouse_pb2
 import mouse
+import keyboard
 
 b = 'a'
 
 MoveEvent = mouse.MoveEvent
 ButtonEvent = mouse.ButtonEvent
 WheelEvent = mouse.WheelEvent
-
+keyboard.start_recording()
+keyboard.stop_recording()
 l = queue.Queue()
 
+
 def receiver(e):
-        if e.event_type == 0:
-            event = mouse._mouse_event.MoveEvent._make([e.x, e.y, e.time])
-        if e.event_type == 1:
-            event = mouse._mouse_event.ButtonEvent._make([e.btype, e.button, e.time])
-        if e.event_type == 2:
-            event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
-        l.put(event)
+    if e.event_type == 0:
+        event = mouse._mouse_event.MoveEvent._make([e.x, e.y, e.time])
+    if e.event_type == 1:
+        event = mouse._mouse_event.ButtonEvent._make([e.btype, e.button, e.time])
+    if e.event_type == 2:
+        event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
+    l.put(event)
 
-        # event_to_play = [l.get()]
-        # return event
+    event_to_play = [l.get()]
+    mouse.play(event_to_play)
+    print(event_to_play)
+    return event
 
-def run():
-    print('Mousestarted')
 
-    channel = grpc.insecure_channel('212.40.84.162:5678')
-    stub = mouse_pb2_grpc.MouseSenderStub(channel)
+channel = grpc.insecure_channel('178.164.130.175:5678')
+stub = mouse_pb2_grpc.MouseSenderStub(channel)
+
+
+def run_mouse():
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
-        print('********')
         receiver(e)
 
 
+def run_checker():
+    for m in stub.dateStream(mouse_pb2.DateString(date_time='da')):
+        print(m.date_time)
 
-if __name__ == '__main__':
-  p1 = Process(target=run())
-  p2 = Process(target=keyboard_getter.run)
+
+def run_keyboard():
+    print('keyboard started')
+    for n in stub.GetKeyboard(mouse_pb2.KeyStroke(key=b)):
+        x = n.key.split()[0]
+        char = x.split('(')[1]
+        # print(n.key.split()[1][0])
+        # print('***************')
+        print(char)
+        if n.key.split()[1][0] == 'u':
+            keyboard.send(char)
+
+
+def run():
+    print('Mousestarted')
+    p1 = Process(target=run_mouse)
+    p2 = Process(target=run_checker)
+    p3 = Process(target=run_keyboard)
+    p1.start()
+    p2.start()
+    p3.start()
 
 
 if __name__ == "__main__":
-
-    p2.start()
-    p1.start()
+    run()

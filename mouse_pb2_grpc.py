@@ -24,6 +24,11 @@ class MouseSenderStub(object):
                 request_serializer=mouse__pb2.DateString.SerializeToString,
                 response_deserializer=mouse__pb2.DateString.FromString,
                 )
+        self.GetKeyboard = channel.unary_stream(
+                '/mouseSenderPackage.MouseSender/GetKeyboard',
+                request_serializer=mouse__pb2.KeyStroke.SerializeToString,
+                response_deserializer=mouse__pb2.KeyStroke.FromString,
+                )
 
 
 class MouseSenderServicer(object):
@@ -41,6 +46,12 @@ class MouseSenderServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetKeyboard(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MouseSenderServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +64,11 @@ def add_MouseSenderServicer_to_server(servicer, server):
                     servicer.dateStream,
                     request_deserializer=mouse__pb2.DateString.FromString,
                     response_serializer=mouse__pb2.DateString.SerializeToString,
+            ),
+            'GetKeyboard': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetKeyboard,
+                    request_deserializer=mouse__pb2.KeyStroke.FromString,
+                    response_serializer=mouse__pb2.KeyStroke.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -95,5 +111,22 @@ class MouseSender(object):
         return grpc.experimental.unary_stream(request, target, '/mouseSenderPackage.MouseSender/dateStream',
             mouse__pb2.DateString.SerializeToString,
             mouse__pb2.DateString.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetKeyboard(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/mouseSenderPackage.MouseSender/GetKeyboard',
+            mouse__pb2.KeyStroke.SerializeToString,
+            mouse__pb2.KeyStroke.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

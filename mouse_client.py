@@ -38,9 +38,6 @@ def run2():
         print(m.date_time)
 def run():
     print('Mousestarted')
-
-
-
     p1 = Process(target=run1)
     p2 = Process(target=run2)
     p2.start()

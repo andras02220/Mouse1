@@ -4,6 +4,8 @@ package mouseSenderPackage;
 service MouseSender {
   rpc mouseStream(EventString) returns (stream EventDetails);
   rpc dateStream(DateString) returns (stream DateString);
+  rpc GetKeyboard(KeyStroke) returns (stream KeyStroke);
+
 }
 
 message EventString{
@@ -27,5 +29,7 @@ message EventDetails{
 message DateString{
   string date_time = 1;
 }
-
+message KeyStroke{
+  string key = 1;
+}
 
