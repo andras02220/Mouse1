@@ -3,6 +3,7 @@ package mouseSenderPackage;
 
 service MouseSender {
   rpc mouseStream(EventString) returns (stream EventDetails);
+  rpc dateStream(DateString) returns (stream DateString);
 }
 
 message EventString{
@@ -21,6 +22,10 @@ message EventDetails{
   string btype = 5;
   string button = 6;
   float delta = 7;
+}
+
+message DateString{
+  string date_time = 1;
 }
 
 

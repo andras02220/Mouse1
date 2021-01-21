@@ -1,5 +1,8 @@
 # python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. mouse.proto
+import time
+
 import keyboard
+from datetime import datetime
 import mouse
 import grpc
 from concurrent import futures
@@ -39,13 +42,17 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
                 t = event.time
                 event = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t)
                 yield event
+    def dateStream(self, request, context):
+        while 1:
+            time.sleep(1)
+            m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
+            yield m
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     mouse_pb2_grpc.add_MouseSenderServicer_to_server(
         MouseServicer(), server)
     server.add_insecure_port('[::]:5678')
-    keyboard.wait('esc')
     server.start()
     print('server started on port 5678')
 

@@ -1,4 +1,4 @@
-import time
+from multiprocessing import Process
 import queue
 import grpc
 import mouse_pb2_grpc
@@ -26,15 +26,26 @@ def receiver(e):
         mouse.play(event_to_play)
         return event
 
-def run():
-    print('Mousestarted')
+channel = grpc.insecure_channel('localhost:5678')
+stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
-    channel = grpc.insecure_channel('212.40.84.162:5678')
-    stub = mouse_pb2_grpc.MouseSenderStub(channel)
+
+def run1():
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
         print('********')
         receiver(e)
+def run2():
+    for m in stub.dateStream(mouse_pb2.DateString(date_time='da')):
+        print(m.date_time)
+def run():
+    print('Mousestarted')
 
+
+
+    p1 = Process(target=run1)
+    p2 = Process(target=run2)
+    p2.start()
+    p1.start()
 
 if __name__ == "__main__":
     run()

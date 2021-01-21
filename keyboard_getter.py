@@ -32,8 +32,8 @@ def run():
         print(e.key.split()[1][0])
         print('***************')
         print(char)
-        if e.key.split()[1][0] == 'u' and len(char)==1:
-            keyboard.write(char)
+        if e.key.split()[1][0] == 'u':
+            keyboard.send(char)
 
 
 if __name__ == "__main__":
