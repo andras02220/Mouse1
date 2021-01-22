@@ -9,12 +9,55 @@ from concurrent import futures
 import mouse_pb2
 import mouse_pb2_grpc
 import queue
+import winsound
 
 class IterQueue(queue.Queue):
     def __iter__(self):
         while True:
             yield self.get()
+on_hold_keyboard = False
+on_hold_mouse = False
 
+def toggle_on_hold_keyboard():
+    ''' toggles variable on_hold_keyboard , if True the client stops playing the received events'''
+    '''called in datestream'''
+
+    global on_hold_keyboard
+    on_hold_keyboard = not on_hold_keyboard
+    winsound.Beep(1100, 1500)
+    if on_hold_keyboard == True:
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('MOUZE STARTED')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    if on_hold_keyboard == False:
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('MOUZE STOPPED')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+def toggle_on_hold_mouse():
+    ''' toggles variable on_hold_mouse , if True the client stops playing the received events'''
+    '''called in datestream'''
+
+    global on_hold_mouse
+    on_hold_mouse = not on_hold_mouse
+    winsound.Beep(600, 1500)
+
+    if on_hold_mouse == True:
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('MOUZE STARTED')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$')
+    if on_hold_mouse == False:
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('MOUZE STOPPED')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
 class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
     def mouseStream(self, request, context):
@@ -24,28 +67,32 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             print('*******************************  MOUSE eleje')
             print(' mouse ciklus eleje')
             event = l.get()
-            print('atkuldesre keszul: ' + event)
+            print('atkuldesre keszul: ')
+            print(event)
             if isinstance(event, mouse._mouse_event.MoveEvent):
                 x = event.x
                 y = event.y
                 t = event.time
-                event_to_send = mouse_pb2.EventDetails(event_type='MOVE', x=x, y=y, time=t)
-                print('atkuldesre kesz: ' + event_to_send)
+                event_to_send = mouse_pb2.EventDetails(event_type='MOVE', x=x, y=y, time=t, on_hold=on_hold_mouse)
+                print('atkuldesre kesz: ')
+                print(event_to_send)
                 yield event_to_send
 
             if isinstance(event, mouse._mouse_event.ButtonEvent):
                 type = event.event_type
                 button = event.button
                 t = event.time
-                event_to_send = mouse_pb2.EventDetails(event_type='BUTTON', btype=type, button=button, time=t)
-                print('atkuldesre kesz: ' + event_to_send)
+                event_to_send = mouse_pb2.EventDetails(event_type='BUTTON', btype=type, button=button, time=t, on_hold=on_hold_mouse)
+                print('atkuldesre kesz: ')
+                print(event_to_send)
                 yield event_to_send
 
             if isinstance(event, mouse._mouse_event.WheelEvent):
                 delta = event.delta
                 t = event.time
-                event_to_send = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t)
-                print('atkuldesre kesz: ' + event_to_send)
+                event_to_send = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t, on_hold=on_hold_mouse)
+                print('atkuldesre kesz: ')
+                print(event_to_send)
                 yield event_to_send
 
     def dateStream(self, request, context):
@@ -53,6 +100,9 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             print('*******************************  TIMEPINGSTREAM eleje')
             print(' TIMEPING ciklus eleje')
             time.sleep(1)
+            if keyboard.is_pressed('print screen'):
+                toggle_on_hold_keyboard()
+                toggle_on_hold_mouse()
             m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
             yield m
 
@@ -63,9 +113,15 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
         while True:
             print('*******************************  KEYBOARD eleje')
             print(' KEYBOARD ciklus eleje')
-            # e = str(l.get())
-            event_to_send = mouse_pb2.KeyStroke(key=str(ko.get()))
-            print('atkuldesre kesz: ' + event_to_send)
+            new = str(ko.get())
+            if new == "KeyboardEvent(caps lock up)":
+                toggle_on_hold_keyboard()
+
+            if new == "KeyboardEvent(print screen up)":
+                toggle_on_hold_keyboard()
+            event_to_send = mouse_pb2.KeyStroke(key=new, on_hold=on_hold_keyboard)
+            print('atkuldesre kesz: ')
+            print(event_to_send)
 
             yield event_to_send
 def serve():

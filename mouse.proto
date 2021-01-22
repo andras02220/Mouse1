@@ -24,6 +24,7 @@ message EventDetails{
   string btype = 5;
   string button = 6;
   float delta = 7;
+  bool on_hold = 8;
 }
 
 message DateString{
@@ -31,5 +32,7 @@ message DateString{
 }
 message KeyStroke{
   string key = 1;
+    bool on_hold = 2;
+
 }
 

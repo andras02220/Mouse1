@@ -17,7 +17,9 @@ l = queue.Queue()
 
 
 def receiver(e):
-    print('mouse uzenet atjott: ' + e )
+
+    print('mouse uzenet atjott:')
+    print(e)
     if e.event_type == 0:
         event = mouse._mouse_event.MoveEvent._make([e.x, e.y, e.time])
     elif e.event_type == 1:
@@ -30,17 +32,20 @@ def receiver(e):
 
 
     event_to_play = [l.get()]
-    print('lejatszasra kesz: ' +event_to_play)
+    print('lejatszasra kesz: ')
+    print(event_to_play)
     mouse.play(event_to_play)
 
 
-channel = grpc.insecure_channel('178.164.130.175:5678')
+channel = grpc.insecure_channel('localhost:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 
 def run_mouse():
     print('Mousestarted')
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
+        if e.on_hold == True:
+            continue
         receiver(e)
 
 
@@ -53,6 +58,8 @@ def run_checker():
 def run_keyboard():
     print('keyboard started')
     for n in stub.GetKeyboard(mouse_pb2.KeyStroke(key=b)):
+        if n.on_hold == True:
+            continue
         print('keyboard uzenet megkapva')
         x = n.key.split()[0]
         char = x.split('(')[1]
