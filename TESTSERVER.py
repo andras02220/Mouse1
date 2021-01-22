@@ -21,39 +21,53 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
         l = IterQueue(maxsize=30000)
         mouse.hook(l.put)
         while True:
+            print('*******************************  MOUSE eleje')
+            print(' mouse ciklus eleje')
             event = l.get()
-            print(event)
+            print('atkuldesre keszul: ' + event)
             if isinstance(event, mouse._mouse_event.MoveEvent):
                 x = event.x
                 y = event.y
                 t = event.time
-                event = mouse_pb2.EventDetails(event_type='MOVE', x=x, y=y, time=t)
-                yield event
+                event_to_send = mouse_pb2.EventDetails(event_type='MOVE', x=x, y=y, time=t)
+                print('atkuldesre kesz: ' + event_to_send)
+                yield event_to_send
 
             if isinstance(event, mouse._mouse_event.ButtonEvent):
                 type = event.event_type
                 button = event.button
                 t = event.time
-                event = mouse_pb2.EventDetails(event_type='BUTTON', btype=type, button=button, time=t)
-                yield event
+                event_to_send = mouse_pb2.EventDetails(event_type='BUTTON', btype=type, button=button, time=t)
+                print('atkuldesre kesz: ' + event_to_send)
+                yield event_to_send
 
             if isinstance(event, mouse._mouse_event.WheelEvent):
                 delta = event.delta
                 t = event.time
-                event = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t)
-                yield event
+                event_to_send = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t)
+                print('atkuldesre kesz: ' + event_to_send)
+                yield event_to_send
+
     def dateStream(self, request, context):
         while 1:
+            print('*******************************  TIMEPINGSTREAM eleje')
+            print(' TIMEPING ciklus eleje')
             time.sleep(1)
             m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
             yield m
+
     def GetKeyboard(self, request, context):
+
         ko = IterQueue(maxsize=30000)
         keyboard.hook(ko.put)
         while True:
+            print('*******************************  KEYBOARD eleje')
+            print(' KEYBOARD ciklus eleje')
             # e = str(l.get())
-            event = mouse_pb2.KeyStroke(key=str(ko.get()))
-            yield event
+            event_to_send = mouse_pb2.KeyStroke(key=str(ko.get()))
+            print('atkuldesre kesz: ' + event_to_send)
+
+            yield event_to_send
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     mouse_pb2_grpc.add_MouseSenderServicer_to_server(
