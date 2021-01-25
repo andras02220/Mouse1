@@ -139,7 +139,7 @@ def serve():
         MouseServicer(), server)
     server.add_insecure_port('[::]:5678')
     server.start()
-    print('server started on port 5678')
+    print('Server started on port 5678')
 
     server.wait_for_termination()
 
