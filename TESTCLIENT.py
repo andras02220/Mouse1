@@ -33,10 +33,12 @@ def receiver(e):
     event_to_play = [l.get()]
     # print('lejatszasra kesz: ')
     print(event_to_play)
+    with open('text.txt', 'a')as f:
+        f.write(event_to_play)
     mouse.play(event_to_play)
 
 
-channel = grpc.insecure_channel('212.40.84.158:5678')
+channel = grpc.insecure_channel('92.249.227.57:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 
