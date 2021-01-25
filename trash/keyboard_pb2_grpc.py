@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import keyboard_pb2 as keyboard__pb2
+from trash import keyboard_pb2 as keyboard__pb2
 
 
 class KeyboardStub(object):

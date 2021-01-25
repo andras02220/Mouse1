@@ -1,8 +1,7 @@
 import keyboard
 import grpc
 from concurrent import futures
-import keyboard_pb2
-import keyboard_pb2_grpc
+from trash import keyboard_pb2_grpc, keyboard_pb2
 import queue
 
 class IterQueue(queue.Queue):

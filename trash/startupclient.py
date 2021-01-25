@@ -1,5 +1,4 @@
-import mouse_client
-import keyboard_getter
+from trash import keyboard_getter, mouse_client
 from multiprocessing import Process
 
 

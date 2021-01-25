@@ -1,7 +1,6 @@
 import keyboard
 import grpc
-import keyboard_pb2_grpc
-import keyboard_pb2
+from trash import keyboard_pb2_grpc, keyboard_pb2
 import queue
 keyboard.start_recording()
 keyboard.stop_recording()

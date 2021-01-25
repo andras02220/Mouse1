@@ -1,5 +1,4 @@
-import mouse_server
-import keyboard_sender
+from trash import keyboard_sender, mouse_server
 from multiprocessing import Process
 
 
