@@ -79,9 +79,10 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             # print('*******************************  MOUSE eleje')
             event = l.get()
             print(event)
-            f = str[event]
+            f = []
+            f.append(event)
             with open('text.txt', 'a')as f:
-                f.write(str)
+                f.write(str(f))
             # print('atkuldesre keszul: ')
             # print(event)
             if isinstance(event, mouse._mouse_event.MoveEvent):
