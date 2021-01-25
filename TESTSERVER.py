@@ -11,6 +11,7 @@ import mouse_pb2
 import mouse_pb2_grpc
 import queue
 import winsound
+queue_test = queue.Queue
 
 class IterQueue(queue.Queue):
     def __iter__(self):
@@ -74,10 +75,10 @@ keyread.start()
 class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
     def mouseStream(self, request, context):
         l = IterQueue(maxsize=30000)
-        mouse.hook(l.put)
+        mouse.hook(queue_test.put)
         while True:
             # print('*******************************  MOUSE eleje')
-            event = l.get()
+            event = queue_test.get()
             print(event)
             ev = '[' + str(event) + ']'
             with open('text.txt', 'a')as f:
