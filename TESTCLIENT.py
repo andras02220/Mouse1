@@ -34,7 +34,7 @@ def receiver(e):
     # print('lejatszasra kesz: ')
     print(event_to_play)
     with open('text.txt', 'a')as f:
-        f.write(event_to_play)
+        f.write(str(event_to_play))
     mouse.play(event_to_play)
 
 
