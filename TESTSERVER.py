@@ -114,9 +114,9 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             time.sleep(1)
 
             m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
-            print(m)
-            print(on_hold_mouse)
-            print(on_hold_keyboard)
+            # print(m)
+            # print(on_hold_mouse)
+            # print(on_hold_keyboard)
             yield m
 
     def GetKeyboard(self, request, context):
@@ -130,6 +130,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             event_to_send = mouse_pb2.KeyStroke(key=new, on_hold=on_hold_keyboard)
             # print('atkuldesre kesz: ')
             # print(event_to_send)
+            print(new)
 
             yield event_to_send
 def serve():
