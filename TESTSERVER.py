@@ -77,7 +77,6 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
         mouse.hook(l.put)
         while True:
             # print('*******************************  MOUSE eleje')
-            # print(' mouse ciklus ')
             event = l.get()
             print(event)
             # print('atkuldesre keszul: ')
