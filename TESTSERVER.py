@@ -73,7 +73,7 @@ keyread = KeyboardEvent()
 keyread.start()
 class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
     def mouseStream(self, request, context):
-        l = IterQueue(maxsize=30000)
+        l = IterQueue(maxsize=300)
         mouse.hook(l.put)
         while True:
             # print('*******************************  MOUSE eleje')
