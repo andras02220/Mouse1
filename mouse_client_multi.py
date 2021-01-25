@@ -7,7 +7,7 @@ import mouse
 import keyboard
 
 b = 'a'
-
+on_hold = False
 MoveEvent = mouse.MoveEvent
 ButtonEvent = mouse.ButtonEvent
 WheelEvent = mouse.WheelEvent
@@ -19,28 +19,53 @@ l = queue.Queue()
 def receiver(e):
     if e.event_type == 0:
         event = mouse._mouse_event.MoveEvent._make([e.x, e.y, e.time])
-    if e.event_type == 1:
+    elif e.event_type == 1:
         event = mouse._mouse_event.ButtonEvent._make([e.btype, e.button, e.time])
-    if e.event_type == 2:
+    elif e.event_type == 2:
         event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
     l.put(event)
 
     event_to_play = [l.get()]
-    mouse.play(event_to_play)
     print(event_to_play)
-    return event
 
+    # mouse.play(event_to_play)
+def toggle_on_hold():
+    global on_hold
+    on_hold = not on_hold
+def get_on_hold_value():
+    global on_hold
+    result = on_hold
+    return result
 
-channel = grpc.insecure_channel('178.164.130.175:5678')
+channel = grpc.insecure_channel('localhost:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 
 def run_mouse():
+    print('Mouse started')
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
-        receiver(e)
+        global on_hold
+
+        if e.event_type == 0:
+            event = mouse._mouse_event.MoveEvent._make([e.x, e.y, e.time])
+        elif e.event_type == 1:
+            event = mouse._mouse_event.ButtonEvent._make([e.btype, e.button, e.time])
+        elif e.event_type == 2:
+            event = mouse._mouse_event.WheelEvent._make([e.delta, e.time])
+        l.put(event)
+
+        event_to_play = [l.get()]
+        print('**********')
+        if get_on_hold_value():
+            continue
+        # mouse.play(event_to_play)
+        print(event_to_play)
+        print(on_hold)
 
 
 def run_checker():
+    print('Time ping started')
+
     for m in stub.dateStream(mouse_pb2.DateString(date_time='da')):
         print(m.date_time)
 
@@ -48,17 +73,24 @@ def run_checker():
 def run_keyboard():
     print('keyboard started')
     for n in stub.GetKeyboard(mouse_pb2.KeyStroke(key=b)):
-        x = n.key.split()[0]
-        char = x.split('(')[1]
-        # print(n.key.split()[1][0])
-        # print('***************')
+        print(n.key)
+        k = n.key.replace(' up)', '')
+        k2 = k.replace(' down)', '')
+        char = k2.split('(')[1]
         print(char)
+        print(get_on_hold_value())
+
+        print(n.key.split()[-1][0])
+        if char == 'caps lock' and n.key.split()[-1][0] == 'u':
+            toggle_on_hold()
+        if get_on_hold_value():
+            continue
         if n.key.split()[1][0] == 'u':
-            keyboard.send(char)
+            # keyboard.send(char)
+            print(char)
 
 
 def run():
-    print('Mousestarted')
     p1 = Process(target=run_mouse)
     p2 = Process(target=run_checker)
     p3 = Process(target=run_keyboard)
