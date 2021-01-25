@@ -79,6 +79,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             # print('*******************************  MOUSE eleje')
             # print(' mouse ciklus eleje')
             event = l.get()
+            print(event)
             # print('atkuldesre keszul: ')
             # print(event)
             if isinstance(event, mouse._mouse_event.MoveEvent):
@@ -87,7 +88,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
                 t = event.time
                 event_to_send = mouse_pb2.EventDetails(event_type='MOVE', x=x, y=y, time=t, on_hold=on_hold_mouse)
                 # print('atkuldesre kesz: ')
-                print(event_to_send)
+                # print(event_to_send)
                 yield event_to_send
 
             if isinstance(event, mouse._mouse_event.ButtonEvent):
@@ -96,7 +97,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
                 t = event.time
                 event_to_send = mouse_pb2.EventDetails(event_type='BUTTON', btype=type, button=button, time=t, on_hold=on_hold_mouse)
                 # print('atkuldesre kesz: ')
-                print(event_to_send)
+                # print(event_to_send)
                 yield event_to_send
 
             if isinstance(event, mouse._mouse_event.WheelEvent):
@@ -104,7 +105,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
                 t = event.time
                 event_to_send = mouse_pb2.EventDetails(event_type='WHEEL', delta=delta, time=t, on_hold=on_hold_mouse)
                 # print('atkuldesre kesz: ')
-                print(event_to_send)
+                # print(event_to_send)
                 yield event_to_send
 
     def dateStream(self, request, context):
