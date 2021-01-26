@@ -1,7 +1,7 @@
 # python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. mouse.proto
 import time
 import threading
-
+import helper_functions
 import keyboard
 from datetime import datetime
 import mouse
@@ -142,7 +142,8 @@ def serve():
         MouseServicer(), server)
     server.add_insecure_port('[::]:5678')
     server.start()
-    print('Server started on port 5678')
+    ip_address = helper_functions.get_my_ip()
+    print('Server started on {}:5678'.format(ip_address))
 
     server.wait_for_termination()
 

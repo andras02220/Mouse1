@@ -32,7 +32,7 @@ def receiver(e):
 
     event_to_play = [l.get()]
     # print('lejatszasra kesz: ')
-    print(event_to_play)
+    print('.', end='', flush=True)
     wr = str(event_to_play)+ '\n'
     with open('text.txt', 'a')as f:
         f.write(wr)
