@@ -15,7 +15,6 @@ keyboard.start_recording()
 keyboard.stop_recording()
 l = queue.Queue()
 
-
 def receiver(e):
 
     # print('mouse uzenet atjott:')
@@ -32,7 +31,7 @@ def receiver(e):
 
     event_to_play = [l.get()]
     # print('lejatszasra kesz: ')
-    print('.', end='', flush=True)
+
     mouse.play(event_to_play)
 
 
@@ -42,10 +41,19 @@ stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 def run_mouse():
     print('Mousestarted')
+    k = True
     for e in stub.mouseStream(mouse_pb2.EventString(mouseevent=b)):
         # print(e.on_hold)
         if e.on_hold == True:
             continue
+
+        # display that the stream is working in the terminal
+        if k:
+            print('OOO', end='')
+        if not k:
+            for i in range(4):
+                print('\b', end='')
+        k = not k
         receiver(e)
 
 
