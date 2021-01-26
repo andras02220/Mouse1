@@ -124,7 +124,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
 
     def GetKeyboard(self, request, context):
 
-        ko = IterQueue(maxsize=30000)
+        ko = IterQueue(maxsize=300)
         keyboard.hook(ko.put)
         while True:
             # print('*******************************  KEYBOARD eleje')
