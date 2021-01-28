@@ -34,7 +34,7 @@ class KeyboardServicer(object):
 def add_KeyboardServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetKeyboard': grpc.unary_stream_rpc_method_handler(
-                    servicer.GetKeyboard,
+                    servicer.keyboardStream,
                     request_deserializer=keyboard__pb2.KeyStroke.FromString,
                     response_serializer=keyboard__pb2.KeyStroke.SerializeToString,
             ),

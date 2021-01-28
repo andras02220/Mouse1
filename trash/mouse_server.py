@@ -47,7 +47,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             time.sleep(1)
             m = mouse_pb2.DateString(date_time= 'csatorna mukodik' +str(datetime.now()))
             yield m
-    def GetKeyboard(self, request, context):
+    def keyboardStream(self, request, context):
         ko = IterQueue(maxsize=30000)
         keyboard.hook(ko.put)
         while True:

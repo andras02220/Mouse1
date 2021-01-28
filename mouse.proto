@@ -4,7 +4,7 @@ package mouseSenderPackage;
 service MouseSender {
   rpc mouseStream(EventString) returns (stream EventDetails);
   rpc dateStream(DateString) returns (stream DateString);
-  rpc GetKeyboard(KeyStroke) returns (stream KeyStroke);
+  rpc keyboardStream(KeyStroke) returns (stream KeyStroke);
 
 }
 
@@ -25,14 +25,17 @@ message EventDetails{
   string button = 6;
   float delta = 7;
   bool on_hold = 8;
+
 }
 
 message DateString{
   string date_time = 1;
+  bool on_hold = 8;
+
 }
 message KeyStroke{
   string key = 1;
-    bool on_hold = 2;
+  bool on_hold = 2;
 
 }
 
