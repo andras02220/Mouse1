@@ -53,8 +53,8 @@ def run_keyboard():
         # print('keyboard uzenet megkapva')
         # print(n.key)
         string1 = n.key.split('(')[1]
-        sring2 = string1.replace('down)', '')
-        char = sring2.replace('up)', '')
+        sring2 = string1.replace(' down)', '')
+        char = sring2.replace(' up)', '')
         print('keyboard' + str(n.on_hold))
         # print(char)
         if not n.on_hold:
