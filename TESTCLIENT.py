@@ -57,6 +57,7 @@ def run_keyboard():
         print('keyboard'+ str(n.on_hold))
         # print(char)
         if not n.on_hold:
+            print(n.key)
             if 'up' in n.key:
                 try:
                     # print(n.on_hold)
