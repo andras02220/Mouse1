@@ -59,8 +59,9 @@ def run_keyboard():
         if not n.on_hold:
             if 'up' in n.key:
                 try:
-                    # keyboard.send(char)
-                    print(char)
+                    print(n.on_hold)
+                    keyboard.send(char)
+                    # print(char)
                 except ValueError:
                     continue
 
