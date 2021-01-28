@@ -26,8 +26,8 @@ def receiver(e):
     l.put(event)
     event_to_play = [l.get()]
     if not e.on_hold:
-        # mouse.play(event_to_play)
-        print(event_to_play)
+        mouse.play(event_to_play)
+        # print(event_to_play)
 
 channel = grpc.insecure_channel('192.168.56.1:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
@@ -56,12 +56,13 @@ def run_keyboard():
         char = sring2.replace('up)', '')
         print('keyboard'+ str(n.on_hold))
         print(char)
-        if 'up' in n.key:
-            try:
-                # keyboard.send(char)
-                print(char)
-            except ValueError:
-                continue
+        if not n.on_hold:
+            if 'up' in n.key:
+                try:
+                    keyboard.send(char)
+                    # print(char)
+                except ValueError:
+                    continue
 
 
 def run():
