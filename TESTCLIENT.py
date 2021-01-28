@@ -29,6 +29,7 @@ def receiver(e):
         mouse.play(event_to_play)
         # print(event_to_play)
 
+
 channel = grpc.insecure_channel('192.168.56.1:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
@@ -42,8 +43,8 @@ def run_mouse():
 def run_checker():
     # print('time started')
     for m in stub.dateStream(mouse_pb2.DateString(date_time='da')):
-         print(m.date_time)
-         print('onhold' + str(m.on_hold))
+        print(m.date_time)
+        print('onhold' + str(m.on_hold))
 
 
 def run_keyboard():
@@ -54,17 +55,14 @@ def run_keyboard():
         string1 = n.key.split('(')[1]
         sring2 = string1.replace('down)', '')
         char = sring2.replace('up)', '')
-        print('keyboard'+ str(n.on_hold))
+        print('keyboard' + str(n.on_hold))
         # print(char)
         if not n.on_hold:
             print(n.key)
             if 'up' in n.key:
-                try:
-                    # print(n.on_hold)
-                    keyboard.send(char)
-                    print(char)
-                except ValueError:
-                    continue
+                # print(n.on_hold)
+                keyboard.send(char)
+                print(char)
 
 
 def run():
