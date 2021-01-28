@@ -49,19 +49,19 @@ def run_checker():
 def run_keyboard():
     # print('keyboard started')
     for n in stub.keyboardStream(mouse_pb2.KeyStroke(key=b)):
-        print('keyboard uzenet megkapva')
-        print(n.key)
+        # print('keyboard uzenet megkapva')
+        # print(n.key)
         string1 = n.key.split('(')[1]
         sring2 = string1.replace('down)', '')
         char = sring2.replace('up)', '')
         print('keyboard'+ str(n.on_hold))
-        print(char)
+        # print(char)
         if not n.on_hold:
             if 'up' in n.key:
                 try:
-                    print(n.on_hold)
+                    # print(n.on_hold)
                     keyboard.send(char)
-                    # print(char)
+                    print(char)
                 except ValueError:
                     continue
 
