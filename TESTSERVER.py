@@ -150,6 +150,7 @@ class MouseServicer(mouse_pb2_grpc.MouseSenderServicer):
             # if keyboard.is_pressed('print screen'):
             #     on_hold = not on_hold
             if keyboard.read_key() == 'print screen':
+                time.sleep(5)
                 if not on_hold:
                     playsound('stop.wav')
                 on_hold = not on_hold
