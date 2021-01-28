@@ -29,7 +29,7 @@ def receiver(e):
         mouse.play(event_to_play)
         # print(event_to_play)
 
-channel = grpc.insecure_channel('localhost:5678')
+channel = grpc.insecure_channel('192.168.56.1:5678')
 stub = mouse_pb2_grpc.MouseSenderStub(channel)
 
 
